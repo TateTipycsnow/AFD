@@ -1,17 +1,46 @@
-const { BrowserWindow } = require('electron').remote;
+const { BrowserWindow, dialog } = require('electron').remote;
 const path = require('path');
 
-const button = document.getElementById('nuevaVentana')
+const button = document.getElementById('verificar')
+const automata = {
+    estadoInicial: 1,
+    estadoFinal: 2,
+    transiciones: [{
+            estado: 1,
+            simbolo: 0,
+            al_estado: 2
+        },
+        {
+            estado: 2,
+            simbolo: 0,
+            al_estado: 2
+        },
+        {
+            estado: 2,
+            simbolo: 1,
+            al_estado: 2
+        }
+    ]
+}
 
 button.addEventListener('click', (event) => {
-    const modalPath = path.join('file://', __dirname, '/windows/modal.html');
+    let cadena = document.getElementById('txtCadena').value;
+    let estadoActual = automata.estadoInicial;
+    let arrayCadena = cadena.split('');
 
-    let modal = new BrowserWindow({
-        width: 400,
-        height: 320
+    arrayCadena.forEach(simbolo => {
+        console.log(simbolo);
+
+        automata.transiciones.forEach(transicion => {
+            if (transicion.estado == estadoActual && transicion.simbolo == simbolo) {
+                estadoActual = transicion.al_estado;
+            }
+        });
     });
 
-    modal.on('close', () => { modal = null });
-    modal.loadURL(modalPath);
-    modal.show();
+    dialog.showErrorBox('Error', 'La cadena no coincide con el lenguaje.')
+    dialog.showMessageBox({
+        buttons: ['Aceptar', 'Cancelar'],
+        message: 'Cadena correcta'
+    });
 });
