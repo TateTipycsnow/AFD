@@ -26,21 +26,33 @@ const automata = {
 button.addEventListener('click', (event) => {
     let cadena = document.getElementById('txtCadena').value;
     let estadoActual = automata.estadoInicial;
-    let arrayCadena = cadena.split('');
+    let error = false;
 
-    arrayCadena.forEach(simbolo => {
+    cadena.split('').forEach(simbolo => {
         console.log(simbolo);
+        let encuentraTransicion = false;
 
         automata.transiciones.forEach(transicion => {
             if (transicion.estado == estadoActual && transicion.simbolo == simbolo) {
                 estadoActual = transicion.al_estado;
+                encuentraTransicion = true;
+                return;
             }
         });
+
+        if (!encuentraTransicion) {
+            error = true;
+            dialog.showErrorBox('Error', 'La cadena no es valida.');
+            return;
+        }
     });
 
-    dialog.showErrorBox('Error', 'La cadena no coincide con el lenguaje.')
-    dialog.showMessageBox({
-        buttons: ['Aceptar', 'Cancelar'],
-        message: 'Cadena correcta'
-    });
+    if (!error && automata.estadoFinal == estadoActual) {
+        let options = {
+            buttons: ['Aceptar', 'Cancelar'],
+            message: 'Cadena correcta'
+        }
+        dialog.showMessageBox(options);
+    }
+
 });
