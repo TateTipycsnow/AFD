@@ -49,7 +49,7 @@ button.addEventListener('click', (event) => {
 
     if (!error && automata.estadoFinal == estadoActual) {
         let options = {
-            buttons: ['Aceptar', 'Cancelar'],
+            buttons: ['Aceptar'],
             message: 'Cadena correcta'
         }
         dialog.showMessageBox(options);
