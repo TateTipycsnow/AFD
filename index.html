@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <title>ElectronJS</title>
+</head>
+
+<body>
+    <h1>Estoy utilizando los siguientes paquetes:</h1>
+    <ul>
+        <li>
+            Node:
+            <script>
+                document.write(process.versions.node)
+            </script>
+        </li>
+        <li>
+            Chrome:
+            <script>
+                document.write(process.versions.chrome)
+            </script>
+        </li>
+        <li>
+            Electron:
+            <script>
+                document.write(process.versions.electron)
+            </script>
+        </li>
+    </ul>
+</body>
+
+</html>
