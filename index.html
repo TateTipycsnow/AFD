@@ -6,46 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <title>ElectronJS</title>
-    <style>
-        th,
-        td {
-            border: 1px solid #ccc;
-        }
-    </style>
 </head>
 
 <body>
-    <h1>Automatas Finitos Deterministicos:</h1>
-
+    <h1>Automatas Finitos Deterministicos</h1>
+    <label>Automatas disponibles:</label>
     <div>
-        <h2>Cadenas:</h2>
-        <label>Ingresa la cadena para validar:</label>
-        <input type="text" id="txtCadena">
+        <button id="1erAFD">
+            Σ={a,b,c}. El conjunto de cadenas que inician en la sub-cadena ac o no terminan en la sub-cadena ab.
+        </button>
+    </div>
+    <div>
+        <button id="2ndAFD">
+            Σ={a,b,c}. El conjunto de cadenas que inician en la sub-cadena ac y no terminan en la sub-cadena ab.
+        </button>
     </div>
 
-    <div>
-        <h2>Tabla de transiciones:</h2>
-        <table>
-            <tr>
-                <th></th>
-                <th>0</th>
-                <th>1</th>
-            </tr>
-            <tr>
-                <th>S1</th>
-                <td>S2</td>
-                <td>error</td>
-            </tr>
-            <tr>
-                <th>S2</th>
-                <td>S2</td>
-                <td>S2</td>
-            </tr>
-        </table>
-    </div>
-
-    <button id="verificar">Verificar cadena</button>
-    <script src="secondary.js"></script>
+    <script src="ventanas.js"></script>
 
 </body>
 
