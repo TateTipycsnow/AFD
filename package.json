@@ -1,7 +1,7 @@
 {
-    "name": "start",
+    "name": "afd",
     "version": "1.0.0",
-    "description": "La wea del programa",
+    "description": "Comprobacion de AFDs",
     "main": "main.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

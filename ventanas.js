@@ -9,7 +9,7 @@ firstButton.addEventListener('click', (event) => {
 
     let ventana1 = new BrowserWindow({
         width: 690,
-        height: 660,
+        height: 440,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
@@ -26,8 +26,8 @@ secondButton.addEventListener('click', (event) => {
     const afd2nd = path.join('file://', __dirname, '/windows/Segundo AFD/2ndAFD.html');
 
     let ventana2 = new BrowserWindow({
-        width: 820,
-        height: 530,
+        width: 690,
+        height: 440,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
