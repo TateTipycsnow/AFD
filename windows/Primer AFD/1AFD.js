@@ -103,6 +103,8 @@ button.addEventListener('click', (event) => {
     let estadoActual = automata.estadoInicial;
     let error = false;
 
+    debugger;
+
     cadena.split('').every(simbolo => {
         let encuentraTransicion = false;
         debugger;
@@ -137,7 +139,7 @@ button.addEventListener('click', (event) => {
         return true;
     });
 
-    if (!final) {
+    if (!esfinal) {
         dialog.showErrorBox('Error', 'La cadena no es valida.');
     }
 });

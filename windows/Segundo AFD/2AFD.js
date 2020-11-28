@@ -122,7 +122,7 @@ button.addEventListener('click', (event) => {
         return true;
     });
 
-    if (!final) {
+    if (!esfinal) {
         dialog.showErrorBox('Error', 'La cadena no es valida.');
     }
 });
